@@ -1,2 +1,2 @@
 # setup-distro
-Ansible role to set up a brand new Linux distro with my desired software
+Ansible role to configure a new Linux distro with my desired software packages and configurations respectively.
