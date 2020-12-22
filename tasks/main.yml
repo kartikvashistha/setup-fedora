@@ -1,0 +1,11 @@
+---
+# tasks file for setup-distro
+
+- hosts: localhost
+  become: true
+
+  tasks:
+  - name: Upgrade system packages
+    dnf:
+      name: "*"
+      state: latest
