@@ -1,0 +1,23 @@
+# This file installs third party apps that have steps to install their signing key, repo and the app itself.
+
+# Install 1Password
+- name: Add the key for 1Password yum repo
+  rpm_key:
+    state: present
+    key: https://downloads.1password.com/linux/keys/1password.asc
+
+- name: Add the 1Password yum repo
+  yum_repository:
+    name: 1Password
+    baseurl: https://downloads.1password.com/linux/rpm
+    enabled: yes
+    gpgcheck: yes
+    repo_gpgcheck: yes
+    gpgkey: https://downloads.1password.com/linux/keys/1password.asc
+
+- name: Install 1Password
+  dnf:
+    name: 1password
+    state: present
+
+

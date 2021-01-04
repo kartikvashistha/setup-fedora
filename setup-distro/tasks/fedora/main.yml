@@ -1,0 +1,40 @@
+- name: Upgrade system packages
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Enable rpm fusion free & non free repos
+  dnf:
+    name: "{{ rpmfusion_free }}, {{ rpmfusion_non_free }}"
+    state: present
+
+- name: Install groups
+  dnf:
+    name:
+      - "@core"
+      - "@sound-and-video"
+      - "@virtualization"
+      - "@multimedia"
+    state: present
+
+- name: Install a list of packages
+  dnf:
+    name: "{{ packages }}"
+    state: present
+
+- name: Install nvidia packages from rpmfusion
+  include_tasks: nvidia.yml
+  when: 'nvidia == "true"'
+
+- name: Add Flathub remote to install flatpaks
+  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Add the flathub flatpak repository remote to the user installation
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
+
+- name: Install third party apps
+  include_tasks: third-party.yml

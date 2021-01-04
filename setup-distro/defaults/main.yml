@@ -1,0 +1,5 @@
+---
+# defaults file for setup-distro
+version: 33
+
+nvidia: 

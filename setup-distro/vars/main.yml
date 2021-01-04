@@ -1,0 +1,20 @@
+---
+# vars file for setup-distro
+rpmfusion_free: "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm"
+rpmfusion_non_free: "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm"
+
+packages:
+- neofetch
+- htop
+- glances
+- steam
+- geary
+- pavucontrol
+- vim
+- samba
+
+flatpak:
+- com.discordapp.Discord
+- com.spotify.Client
+- org.telegram.desktop
+- com.microsoft.Teams
