@@ -9,6 +9,7 @@
 - name: Add the 1Password yum repo
   yum_repository:
     name: 1Password
+    description: 1Password
     baseurl: https://downloads.1password.com/linux/rpm
     enabled: yes
     gpgcheck: yes
@@ -20,4 +21,38 @@
     name: 1password
     state: present
 
+# Install VS Code
+- name: Add the key for VS Code yum repo
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Add the VS Code yum repo
+  yum_repository:
+    name: vscode
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Install VS Code
+  dnf:
+    name: code
+    state: present
+
+# Install Google Chrome
+- name: Add the Google Chrome yum repo
+  yum_repository:
+    name: google-chrome
+    description: google-chrome
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+
+- name: Install Google Chrome
+  dnf:
+    name: google-chrome-stable
+    state: present
 
