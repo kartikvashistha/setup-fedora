@@ -10,6 +10,7 @@
   dnf:
     name: "{{ rpmfusion_free }}, {{ rpmfusion_non_free }}"
     state: present
+    disable_gpg_check: yes
 
 - name: Add third party repos
   yum_repository:             
