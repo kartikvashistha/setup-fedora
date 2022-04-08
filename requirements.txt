@@ -1,2 +1,4 @@
 ansible==2.10.4
 molecule
+molecule[docker]
+yamllint
