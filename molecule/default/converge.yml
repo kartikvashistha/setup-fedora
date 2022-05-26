@@ -5,3 +5,9 @@
     - name: "Include setup-fedora"
       include_role:
         name: "setup-fedora"
+      vars:
+        version: 36
+        flatpak:
+          - com.discordapp.Discord
+          - org.telegram.desktop
+          - com.microsoft.Teams

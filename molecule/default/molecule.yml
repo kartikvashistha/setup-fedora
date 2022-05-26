@@ -5,11 +5,12 @@ driver:
   name: docker
 platforms:
   - name: setup-fedora
-    image: docker.io/fedora:latest
+    image: docker.io/fedora:36
     pre_build_image: true
+    privileged: true
 provisioner:
   name: ansible
 verifier:
-  name: ansible
+  name: testinfra
 lint: |
   yamllint .
