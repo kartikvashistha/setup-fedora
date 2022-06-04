@@ -41,16 +41,17 @@ packages:
 - steam
 - geary
 - pavucontrol
-- vim
+- vim-enhanced
 - samba
-- gnome-tweak-tool
+- gnome-tweaks
 - code
 - 1password
-- google-chrome
+- google-chrome-beta
 - flatpak
+- discord
 
 flatpak:
-- com.discordapp.Discord
 - com.spotify.Client
 - org.telegram.desktop
 - com.microsoft.Teams
+- us.zoom.Zoom
