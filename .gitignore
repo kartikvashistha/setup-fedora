@@ -1,0 +1,3 @@
+.yamlint
+.pytest_cache*
+_pycache_
