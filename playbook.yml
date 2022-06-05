@@ -1,9 +1,9 @@
-# ---
-# # This is an example playbook to run the role
-# - hosts: localhost
-#   become: true
-#   roles:
-#     - role: setup-fedora
-#       vars:
-#         nvidia: "true"
-#         version: 36
+---
+# This is an example playbook to run the role
+- hosts: localhost
+  become: true
+  roles:
+    - role: setup-fedora
+      vars:
+        nvidia: "true"
+        version: 36
