@@ -27,31 +27,3 @@ third_party_repos:
     gpgcheck: yes
     repo_gpgcheck: yes
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
-
-grouplist: 
-- '@core'
-- '@sound-and-video'
-- '@virtualization'
-- '@multimedia'
-
-packages:
-- neofetch
-- htop
-- glances
-- steam
-- geary
-- pavucontrol
-- vim-enhanced
-- samba
-- gnome-tweaks
-- code
-- 1password
-- google-chrome-beta
-- flatpak
-- discord
-
-flatpak:
-- com.spotify.Client
-- org.telegram.desktop
-- com.microsoft.Teams
-- us.zoom.Zoom
