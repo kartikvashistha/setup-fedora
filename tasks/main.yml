@@ -1,3 +1,6 @@
+---
+# tasks file for setup-fedora 
+
 - name: Upgrade system packages
   dnf:
     name: "*"
@@ -7,14 +10,22 @@
   dnf:
     name: "{{ rpmfusion_free }}, {{ rpmfusion_non_free }}"
     state: present
+    disable_gpg_check: yes
+
+- name: Add third party repos
+  yum_repository:             
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    enabled: "{{ item.enabled }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    repo_gpgcheck: "{{ item.repo_gpgcheck }}"
+    gpgkey: "{{ item.gpgkey }}"
+  with_items: "{{ third_party_repos }}"
 
 - name: Install groups
   dnf:
-    name:
-      - "@core"
-      - "@sound-and-video"
-      - "@virtualization"
-      - "@multimedia"
+    name: "{{ grouplist }}"
     state: present
 
 - name: Install a list of packages
@@ -36,5 +47,10 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: user
 
-- name: Install third party apps
-  include_tasks: third-party.yml
+# Make sure to configure Flathub in the respective distro folder
+- name: Install flatpak applications
+  community.general.flatpak:
+    name: "{{ item }}"
+    remote: flathub
+    state: present
+  with_items: "{{ flatpak }}"

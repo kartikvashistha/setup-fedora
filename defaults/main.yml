@@ -1,0 +1,32 @@
+---
+# defaults file for setup-fedora
+nvidia: false
+
+packages:
+- neofetch
+- htop
+- glances
+- steam
+- geary
+- pavucontrol
+- vim-enhanced
+- samba
+- gnome-tweaks
+- code
+- 1password
+- google-chrome-beta
+- flatpak
+- discord
+
+grouplist: 
+- '@core'
+- '@sound-and-video'
+- '@virtualization'
+- '@multimedia'
+
+flatpak:
+- com.spotify.Client
+- org.telegram.desktop
+- com.microsoft.Teams
+- us.zoom.Zoom
+

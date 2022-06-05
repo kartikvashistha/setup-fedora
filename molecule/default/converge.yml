@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include setup-fedora"
+      include_role:
+        name: "setup-fedora"
+      vars:
+        version: 36
+        flatpak:
+          - org.telegram.desktop
+          - com.microsoft.Teams
+          - us.zoom.Zoom

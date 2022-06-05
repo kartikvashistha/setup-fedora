@@ -1,0 +1,14 @@
+galaxy_info:
+  role_name: "setup-fedora"
+  author: kartikvashistha
+  description: Ansible role to configure a fresh Fedora install with my desired repos & software packages respectively.
+  license: license (GPL-2.0-or-later, MIT, etc)
+  min_ansible_version: 2.1
+  platforms:
+  - name: Fedora
+    versions:
+    - 36
+
+  galaxy_tags: []
+
+dependencies: []

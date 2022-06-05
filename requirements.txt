@@ -1,1 +1,5 @@
-ansible==2.10.4
+ansible==5.8.0
+ansible-core==2.12.6
+molecule==3.6.1
+molecule[docker]
+yamllint
