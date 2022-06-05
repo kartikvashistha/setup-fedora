@@ -1,16 +1,14 @@
 galaxy_info:
-  author: Kartik Vashistha
-  description: Ansible role to configure a fresh Fedora install with my desired software packages and configurations respectively.
-  
+  role_name: "setup-fedora"
+  author: kartikvashistha
+  description: Ansible role to configure a fresh Fedora install with my desired repos & software packages respectively.
   license: license (GPL-2.0-or-later, MIT, etc)
-
   min_ansible_version: 2.1
-
   platforms:
   - name: Fedora
     versions:
-    - all
-  
+    - 36
+
   galaxy_tags: []
 
 dependencies: []
