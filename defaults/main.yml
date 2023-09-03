@@ -1,6 +1,7 @@
 ---
 # defaults file for setup-fedora
 nvidia: false
+omz: false
 
 packages:
 - neofetch
@@ -25,6 +26,7 @@ packages:
 - iwlwifi-dvm-firmware
 - iwlwifi-mvm-firmware
 - gnome-extensions-app
+- python3-ansible-lint
 
 grouplist: 
 - '@core'
