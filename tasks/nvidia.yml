@@ -1,19 +1,19 @@
 - name: Install nvidia drivers
-  dnf:
+  ansible.builtin.dnf:
     name: akmod-nvidia
     state: present
 
 - name: Install the optional 64 bit & 32 bit CUDA and NVENC packages
-  dnf:
+  ansible.builtin.dnf:
     name: xorg-x11-drv-nvidia-cuda, xorg-x11-drv-nvidia-cuda-libs, xorg-x11-drv-nvidia-libs.i686
     state: present
 
 - name: Install Vulkan
-  dnf:
+  ansible.builtin.dnf:
     name: vulkan
     state: present
 
 - name: Install packges to enable video acceleration in media players
-  dnf:
+  ansible.builtin.dnf:
     name: vdpauinfo, libva-vdpau-driver, libva-utils
     state: present

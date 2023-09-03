@@ -3,11 +3,10 @@
 - name: Run the setup-fedora role
   hosts: localhost
   become: true
-  become_user: kartik
-  become_method: sudo
+  remote_user: kartik
   roles:
     - role: ../setup-fedora
       vars:
         nvidia: true
-        omz: false
+        omz: true
         version: 38

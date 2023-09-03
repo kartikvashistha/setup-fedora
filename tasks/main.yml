@@ -1,69 +1,68 @@
 ---
-# tasks file for setup-fedora 
+# Tasks file for setup-fedora
+- name: Upgrade system packages
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
 
-# - name: Upgrade system packages
-#   dnf:
-#     name: "*"
-#     state: latest
+- name: Enable rpm fusion free & non free repos
+  ansible.builtin.dnf:
+    name: "{{ rpmfusion_free }}, {{ rpmfusion_non_free }}"
+    state: present
+    disable_gpg_check: yes
 
-# - name: Enable rpm fusion free & non free repos
-#   dnf:
-#     name: "{{ rpmfusion_free }}, {{ rpmfusion_non_free }}"
-#     state: present
-#     disable_gpg_check: yes
+- name: Add third party repos
+  ansible.builtin.yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    enabled: "{{ item.enabled }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    repo_gpgcheck: "{{ item.repo_gpgcheck }}"
+    gpgkey: "{{ item.gpgkey }}"
+  with_items: "{{ third_party_repos }}"
 
-# - name: Add third party repos
-#   yum_repository:             
-#     name: "{{ item.name }}"
-#     description: "{{ item.description }}"
-#     baseurl: "{{ item.baseurl }}"
-#     enabled: "{{ item.enabled }}"
-#     gpgcheck: "{{ item.gpgcheck }}"
-#     repo_gpgcheck: "{{ item.repo_gpgcheck }}"
-#     gpgkey: "{{ item.gpgkey }}"
-#   with_items: "{{ third_party_repos }}"
+- name: Install groups
+  ansible.builtin.dnf:
+    name: "{{ grouplist }}"
+    state: present
 
-# - name: Install groups
-#   dnf:
-#     name: "{{ grouplist }}"
-#     state: present
+- name: Install a list of packages
+  ansible.builtin.dnf:
+    name: "{{ packages }}"
+    state: present
 
-# - name: Install a list of packages
-#   dnf:
-#     name: "{{ packages }}"
-#     state: present
+- name: Install nvidia packages from rpmfusion
+  include_tasks: nvidia.yml
+  when: 'nvidia == "true"'
 
-# - name: Install nvidia packages from rpmfusion
-#   include_tasks: nvidia.yml
-#   when: 'nvidia == "true"'
+- name: Add Flathub remote to install flatpaks
+  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# - name: Add Flathub remote to install flatpaks
-#   command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
 
-# - name: Add the flathub flatpak repository remote to the user installation
-#   flatpak_remote:
-#     name: flathub
-#     state: present
-#     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-#     method: user
-
-# # Make sure to configure Flathub in the respective distro folder
-# - name: Install flatpak applications
-#   community.general.flatpak:
-#     name: "{{ item }}"
-#     remote: flathub
-#     state: present
-#   with_items: "{{ flatpak }}"
+# Make sure to configure Flathub in the respective distro folder
+- name: Install flatpak applications
+  community.general.flatpak:
+    name: "{{ item }}"
+    remote: flathub
+    state: present
+  with_items: "{{ flatpak }}"
 
 - name: Checkout passion theme
   ansible.builtin.git:
     repo: 'https://github.com/ChesterYue/ohmyzsh-theme-passion.git'
-    dest: '$HOME/code/ohmyzsh-theme-passion'
+    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/code/ohmyzsh-theme-passion
   when: omz
 
 - name: Copy passion theme to Oh my Zsh themes folder
   ansible.builtin.copy:
-    src: '$HOME/code/ohmyzsh-theme-passion/passion.zsh-theme'
-    dest: '$HOME/.oh-my-zsh/themes/passion.zsh-theme'
-    remote_src: yes
+    src: /home/{{ ansible_facts['env']['SUDO_USER'] }}/code/ohmyzsh-theme-passion/passion.zsh-theme
+    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.oh-my-zsh/themes/passion.zsh-theme
+    remote_src: true
   when: omz

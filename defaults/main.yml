@@ -3,7 +3,7 @@
 nvidia: false
 omz: false
 
-packages:
+packages: 
 - neofetch
 - htop
 - glances
