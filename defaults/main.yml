@@ -14,9 +14,17 @@ packages:
 - gnome-tweaks
 - code
 - 1password
-- google-chrome-beta
+- 1password-cli
+- google-chrome
 - flatpak
 - discord
+- neovim
+- firefox
+- NetworkManager-wifi
+- iwlegacy-firmware
+- iwlwifi-dvm-firmware
+- iwlwifi-mvm-firmware
+- gnome-extensions-app
 
 grouplist: 
 - '@core'
