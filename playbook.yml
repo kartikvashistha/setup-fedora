@@ -1,9 +1,13 @@
 ---
 # This is an example playbook to run the role
-- hosts: localhost
+- name: Run the setup-fedora role
+  hosts: localhost
   become: true
+  become_user: kartik
+  become_method: sudo
   roles:
     - role: ../setup-fedora
       vars:
-        nvidia: "true"
+        nvidia: true
+        omz: false
         version: 38
