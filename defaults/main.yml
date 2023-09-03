@@ -1,7 +1,7 @@
 ---
 # defaults file for setup-fedora
 nvidia: false
-
+# do some gnome-installation
 packages:
 - neofetch
 - htop
@@ -14,9 +14,17 @@ packages:
 - gnome-tweaks
 - code
 - 1password
-- google-chrome-beta
+- 1password-cli
+- google-chrome
 - flatpak
 - discord
+- neovim
+- firefox
+- NetworkManager-wifi
+- iwlegacy-firmware 
+- iwlwifi-dvm-firmware
+- iwlwifi-mvm-firmware
+- gnome-extensions-app # maybe move this to gnome tasks 
 
 grouplist: 
 - '@core'
@@ -29,4 +37,3 @@ flatpak:
 - org.telegram.desktop
 - com.microsoft.Teams
 - us.zoom.Zoom
-

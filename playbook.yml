@@ -3,7 +3,7 @@
 - hosts: localhost
   become: true
   roles:
-    - role: setup-fedora
+    - role: ../setup-fedora
       vars:
         nvidia: "true"
-        version: 36
+        version: 38
