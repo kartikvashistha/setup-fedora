@@ -5,6 +5,8 @@ omz: false
 
 packages: 
 - neofetch
+- fzf
+- golang
 - htop
 - glances
 - steam
@@ -27,6 +29,7 @@ packages:
 - iwlwifi-mvm-firmware
 - gnome-extensions-app
 - python3-ansible-lint
+- python3-virtualenvwrapper
 
 grouplist: 
 - '@core'
