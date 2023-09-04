@@ -66,3 +66,9 @@
     dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.oh-my-zsh/themes/passion.zsh-theme
     remote_src: true
   when: omz
+
+# Install our zshrc file
+- name: Create zshrc config from template
+  ansible.builtin.template:
+    src: templates/zshrc.j2
+    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.zshrc
