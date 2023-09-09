@@ -3,6 +3,8 @@
 nvidia: false
 omz: false
 
+home_user: /home/{{ ansible_facts['env']['SUDO_USER'] }}
+
 packages: 
 - neofetch
 - fzf
