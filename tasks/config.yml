@@ -3,11 +3,11 @@
 - name: Create zshrc config from template
   ansible.builtin.template:
     src: templates/zshrc.j2
-    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.zshrc
+    dest: "{{ home_user }}/.zshrc"
 
 - name: Ensure .ssh folder exists
   ansible.builtin.file:
-    path: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.ssh
+    path: "{{ home_user }}/.ssh"
     state: directory
     mode: '0755'
 
@@ -15,3 +15,8 @@
   ansible.builtin.template:
     src: templates/ssh-config.j2
     dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.ssh/config
+
+- name: Create gitconfig
+  ansible.builtin.template:
+    src: templates/gitconfig.j2
+    dest: "{{ home_user }}/.gitconfig"
