@@ -1,0 +1,17 @@
+# Create our many config files
+
+- name: Create zshrc config from template
+  ansible.builtin.template:
+    src: templates/zshrc.j2
+    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.zshrc
+
+- name: Ensure .ssh folder exists
+  ansible.builtin.file:
+    path: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.ssh
+    state: directory
+    mode: '0755'
+
+- name: Create .ssh/config
+  ansible.builtin.template:
+    src: templates/ssh-config.j2
+    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.ssh/config

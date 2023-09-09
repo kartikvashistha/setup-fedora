@@ -67,8 +67,6 @@
     remote_src: true
   when: omz
 
-# Install our zshrc file
-- name: Create zshrc config from template
-  ansible.builtin.template:
-    src: templates/zshrc.j2
-    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.zshrc
+# Install our config files
+- name: Create & install config files
+  include_tasks: config.yml
