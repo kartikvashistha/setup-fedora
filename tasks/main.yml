@@ -34,7 +34,7 @@
 
 - name: Install nvidia packages from rpmfusion
   include_tasks: nvidia.yml
-  when: 'nvidia == "true"'
+  when: nvidia
 
 - name: Add Flathub remote to install flatpaks
   command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
