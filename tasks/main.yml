@@ -33,11 +33,11 @@
     state: present
 
 - name: Install nvidia packages from rpmfusion
-  include_tasks: nvidia.yml
+  ansible.builtin.include_tasks: nvidia.yml
   when: nvidia
 
 - name: Add Flathub remote to install flatpaks
-  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
@@ -54,7 +54,7 @@
     state: present
   with_items: "{{ flatpak }}"
 
-- name: Checkout passion theme
+- name: Checkout passion theme # noqa: latest
   ansible.builtin.git:
     repo: 'https://github.com/ChesterYue/ohmyzsh-theme-passion.git'
     dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/code/ohmyzsh-theme-passion
@@ -67,6 +67,18 @@
     remote_src: true
   when: omz
 
+- name: Install AstroNvim
+  ansible.builtin.git: # noqa: latest
+    repo: https://github.com/AstroNvim/AstroNvim
+    dest: "{{ home_user }}/.config/nvim"
+    depth: 1
+
+- name: Clone Nerd Fonts repo
+  ansible.builtin.git: # noqa: latest 
+    repo: https://github.com/ryanoasis/nerd-fonts.git
+    dest: "{{ home_user }}/code/nerd-fonts"
+    depth: 1
+
 # Install our config files
 - name: Create & install config files
-  include_tasks: config.yml
+  ansible.builtin.include_tasks: config.yml
