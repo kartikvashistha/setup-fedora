@@ -40,5 +40,4 @@ grouplist:
 flatpak:
 - com.spotify.Client
 - org.telegram.desktop
-- com.microsoft.Teams
 - us.zoom.Zoom
