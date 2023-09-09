@@ -1,15 +1,14 @@
 # Create our many config files
 
+- name: Create omzr config from template
+  ansible.builtin.template:
+    src: templates/omzrc.j2
+    dest: "{{ home_user }}/.omzrc"
+
 - name: Create zshrc config from template
   ansible.builtin.template:
     src: templates/zshrc.j2
     dest: "{{ home_user }}/.zshrc"
-
-- name: Ensure .ssh folder exists
-  ansible.builtin.file:
-    path: "{{ home_user }}/.ssh"
-    state: directory
-    mode: '0755'
 
 - name: Create .ssh/config
   ansible.builtin.template:
