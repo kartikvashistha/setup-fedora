@@ -1,5 +1,6 @@
 ---
 # Tasks file for setup-fedora
+
 - name: Upgrade system packages
   ansible.builtin.dnf:
     name: "*"
@@ -46,7 +47,6 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: user
 
-# Make sure to configure Flathub in the respective distro folder
 - name: Install flatpak applications
   community.general.flatpak:
     name: "{{ item }}"
@@ -57,13 +57,13 @@
 - name: Checkout passion theme # noqa: latest
   ansible.builtin.git:
     repo: 'https://github.com/ChesterYue/ohmyzsh-theme-passion.git'
-    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/code/ohmyzsh-theme-passion
+    dest: "{{ home_user }}/code/ohmyzsh-theme-passion"
   when: omz
 
 - name: Copy passion theme to Oh my Zsh themes folder
   ansible.builtin.copy:
     src: /home/{{ ansible_facts['env']['SUDO_USER'] }}/code/ohmyzsh-theme-passion/passion.zsh-theme
-    dest: /home/{{ ansible_facts['env']['SUDO_USER'] }}/.oh-my-zsh/themes/passion.zsh-theme
+    dest: "{{ home_user }}/.oh-my-zsh/themes/passion.zsh-theme"
     remote_src: true
   when: omz
 
