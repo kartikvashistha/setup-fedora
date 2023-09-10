@@ -57,27 +57,40 @@
 - name: Checkout passion theme # noqa: latest
   ansible.builtin.git:
     repo: 'https://github.com/ChesterYue/ohmyzsh-theme-passion.git'
-    dest: "{{ home_user }}/code/ohmyzsh-theme-passion"
+    dest: "{{ home_user_path }}/code/ohmyzsh-theme-passion"
   when: omz
+  become: true
+  become_user: "{{ home_username }}"
 
 - name: Copy passion theme to Oh my Zsh themes folder
   ansible.builtin.copy:
-    src: /home/{{ ansible_facts['env']['SUDO_USER'] }}/code/ohmyzsh-theme-passion/passion.zsh-theme
-    dest: "{{ home_user }}/.oh-my-zsh/themes/passion.zsh-theme"
+    src: "{{ home_user_path }}/code/ohmyzsh-theme-passion/passion.zsh-theme"
+    dest: "{{ home_user_path }}/.oh-my-zsh/themes/passion.zsh-theme"
     remote_src: true
   when: omz
 
 - name: Install AstroNvim
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/AstroNvim/AstroNvim
-    dest: "{{ home_user }}/.config/nvim"
+    dest: "{{ home_user_path }}/.config/nvim"
     depth: 1
+  become: true
+  become_user: "{{ home_username }}"
+
+- name: Install my AstroNvim user config
+  ansible.builtin.git:
+    repo: git@github.com:kartikvashistha/astronvim_config.git
+    dest: "{{ home_user_path }}/.config/nvim/lua/user"
+  become: true
+  become_user: "{{ home_username }}"
 
 - name: Clone Nerd Fonts repo
   ansible.builtin.git: # noqa: latest 
     repo: https://github.com/ryanoasis/nerd-fonts.git
-    dest: "{{ home_user }}/code/nerd-fonts"
+    dest: "{{ home_user_path }}/code/nerd-fonts"
     depth: 1
+  become: true
+  become_user: "{{ home_username }}"
 
 # Install our config files
 - name: Create & install config files

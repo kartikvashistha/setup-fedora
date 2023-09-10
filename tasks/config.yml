@@ -3,12 +3,12 @@
 - name: Create omzr config from template
   ansible.builtin.template:
     src: templates/omzrc.j2
-    dest: "{{ home_user }}/.omzrc"
+    dest: "{{ home_user_path }}/.omzrc"
 
 - name: Create zshrc config from template
   ansible.builtin.template:
     src: templates/zshrc.j2
-    dest: "{{ home_user }}/.zshrc"
+    dest: "{{ home_user_path }}/.zshrc"
 
 - name: Create .ssh/config
   ansible.builtin.template:
@@ -18,4 +18,4 @@
 - name: Create gitconfig
   ansible.builtin.template:
     src: templates/gitconfig.j2
-    dest: "{{ home_user }}/.gitconfig"
+    dest: "{{ home_user_path }}/.gitconfig"

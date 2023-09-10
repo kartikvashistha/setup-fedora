@@ -3,7 +3,8 @@
 nvidia: false
 omz: false
 
-home_user: /home/{{ ansible_facts['env']['SUDO_USER'] }}
+home_username: "{{ ansible_facts['env']['SUDO_USER'] }}"
+home_user_path: "/home/{{ home_username }}"
 
 packages: 
 - neofetch
