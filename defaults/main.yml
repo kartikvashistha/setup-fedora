@@ -35,6 +35,10 @@ packages:
 - python3-ansible-lint
 - python3-virtualenvwrapper
 - nordvpn
+- nodejs
+- gcc
+- gcc-c++
+- make
 
 docker_packages: 
 - docker-ce
