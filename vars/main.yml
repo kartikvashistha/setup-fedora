@@ -51,3 +51,11 @@ third_party_repos:
     gpgcheck: false
     repo_gpgcheck: false
     gpgkey:
+
+  - name: libnvidia-container
+    description: libnvidia-container
+    baseurl: https://nvidia.github.io/libnvidia-container/stable/centos8/$basearch
+    enabled: true
+    gpgcheck: false
+    repo_gpgcheck: true
+    gpgkey: https://nvidia.github.io/libnvidia-container/gpgkey
