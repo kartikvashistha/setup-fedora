@@ -9,4 +9,5 @@
       vars:
         nvidia: true
         omz: true
+        docker: true
         version: 38

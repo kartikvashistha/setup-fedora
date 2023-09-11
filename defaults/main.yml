@@ -2,6 +2,7 @@
 # defaults file for setup-fedora
 nvidia: false
 omz: false
+docker: true
 
 home_username: "{{ ansible_facts['env']['SUDO_USER'] }}"
 home_user_path: "/home/{{ home_username }}"
@@ -33,6 +34,13 @@ packages:
 - gnome-extensions-app
 - python3-ansible-lint
 - python3-virtualenvwrapper
+
+docker_packages: 
+- docker-ce
+- docker-ce-cli
+- containerd.io
+- docker-buildx-plugin
+- docker-compose-plugin
 
 grouplist: 
 - '@core'

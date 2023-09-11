@@ -1,0 +1,15 @@
+---
+# Install and configure docker
+- name: Install a list of docker packages
+  ansible.builtin.dnf:
+    name: "{{ docker_packages }}"
+    state: present
+  notify: Start Docker Service
+
+# Add $USER to docker group per docker postinstall instructions: 
+# https://docs.docker.com/engine/install/linux-postinstall/
+- name: Add the $USER to docker group
+  ansible.builtin.user:
+    name: "{{ home_username }}"
+    groups: docker
+    append: true
