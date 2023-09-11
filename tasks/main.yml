@@ -37,15 +37,12 @@
   ansible.builtin.include_tasks: nvidia.yml
   when: nvidia
 
-- name: Add Flathub remote to install flatpaks
-  ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-    method: user
+    method: system
 
 - name: Install flatpak applications
   community.general.flatpak:
