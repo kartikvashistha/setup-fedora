@@ -7,9 +7,9 @@ third_party_repos:
   - name: 1password
     description: "1Password Stable Channel"
     baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: yes
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: true
     gpgkey: https://downloads.1password.com/linux/keys/1password.asc
 
   - name: vscode
@@ -23,23 +23,23 @@ third_party_repos:
   - name: google-chrome
     description: google-chrome
     baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: yes
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: true
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
 
   - name: google-cloud-sdk.repo
     description: Google Cloud CLI
     baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: no
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: false
     gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
   
   - name: docker-ce.repo
     description: Docker CE Stable - $basearch
     baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: no
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: false
     gpgkey: https://download.docker.com/linux/fedora/gpg
