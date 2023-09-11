@@ -1,6 +1,6 @@
 # Create our many config files
 
-- name: Create omzr config from template
+- name: Create omzrc config from template
   ansible.builtin.template:
     src: templates/omzrc.j2
     dest: "{{ home_user_path }}/.omzrc"
