@@ -43,3 +43,11 @@ third_party_repos:
     gpgcheck: true
     repo_gpgcheck: false
     gpgkey: https://download.docker.com/linux/fedora/gpg
+
+  - name: nordvpn
+    description: nordvpn
+    baseurl: https://repo.nordvpn.com//yum/nordvpn/centos/x86_64
+    enabled: true
+    gpgcheck: false
+    repo_gpgcheck: false
+    gpgkey:
