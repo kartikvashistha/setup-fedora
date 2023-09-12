@@ -4,7 +4,7 @@ nvidia: false
 omz: false
 docker: true
 
-home_username: "{{ ansible_facts['env']['SUDO_USER'] }}"
+home_username: "{{ ansible_facts['env']['USERNAME'] }}"
 home_user_path: "/home/{{ home_username }}"
 
 packages: 
