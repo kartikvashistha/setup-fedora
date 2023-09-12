@@ -2,42 +2,64 @@
 # defaults file for setup-fedora
 nvidia: false
 omz: false
+docker: true
 
-packages: 
-- neofetch
-- fzf
-- golang
-- htop
-- glances
-- steam
-- geary
-- pavucontrol
-- vim-enhanced
-- samba
-- gnome-tweaks
-- code
-- 1password
-- 1password-cli
-- google-chrome
-- flatpak
-- discord
-- neovim
-- firefox
-- NetworkManager-wifi
-- iwlegacy-firmware
-- iwlwifi-dvm-firmware
-- iwlwifi-mvm-firmware
-- gnome-extensions-app
-- python3-ansible-lint
-- python3-virtualenvwrapper
+home_username: "{{ ansible_facts['env']['USERNAME'] }}"
+home_user_path: "/home/{{ home_username }}"
 
-grouplist: 
-- '@core'
-- '@sound-and-video'
-- '@virtualization'
-- '@multimedia'
+packages:
+  - neofetch
+  - fzf
+  - golang
+  - htop
+  - glances
+  - steam
+  - geary
+  - pavucontrol
+  - vim-enhanced
+  - samba
+  - gnome-tweaks
+  - code
+  - 1password
+  - 1password-cli
+  - google-chrome
+  - flatpak
+  - discord
+  - neovim
+  - firefox
+  - NetworkManager-wifi
+  - iwlegacy-firmware
+  - iwlwifi-dvm-firmware
+  - iwlwifi-mvm-firmware
+  - gnome-extensions-app
+  - python3-ansible-lint
+  - python3-virtualenvwrapper
+  - nordvpn
+  - nodejs
+  - gcc
+  - gcc-c++
+  - make
+
+nvidia_optional_packages:
+  - xorg-x11-drv-nvidia-cuda
+  - xorg-x11-drv-nvidia-cuda-libs
+  - xorg-x11-drv-nvidia-libs.i686
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+grouplist:
+  - '@core'
+  - '@sound-and-video'
+  - '@virtualization'
+  - '@multimedia'
 
 flatpak:
-- com.spotify.Client
-- org.telegram.desktop
-- us.zoom.Zoom
+  - com.spotify.Client
+  - org.telegram.desktop
+  - us.zoom.Zoom
+  - org.signal.Signal

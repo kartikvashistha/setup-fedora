@@ -4,12 +4,12 @@ rpmfusion_free: "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-relea
 rpmfusion_non_free: "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm"
 
 third_party_repos:
-  - name: 1Password
+  - name: 1password
     description: "1Password Stable Channel"
     baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: yes
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: true
     gpgkey: https://downloads.1password.com/linux/keys/1password.asc
 
   - name: vscode
@@ -22,16 +22,40 @@ third_party_repos:
 
   - name: google-chrome
     description: google-chrome
-    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: yes
+    baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: true
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
 
   - name: google-cloud-sdk.repo
     description: Google Cloud CLI
     baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
-    enabled: yes
-    gpgcheck: yes
-    repo_gpgcheck: no
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: false
     gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+  - name: docker-ce.repo
+    description: Docker CE Stable - $basearch
+    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: false
+    gpgkey: https://download.docker.com/linux/fedora/gpg
+
+  - name: nordvpn
+    description: nordvpn
+    baseurl: https://repo.nordvpn.com//yum/nordvpn/centos/x86_64
+    enabled: true
+    gpgcheck: false
+    repo_gpgcheck: false
+    gpgkey:
+
+  - name: libnvidia-container
+    description: libnvidia-container
+    baseurl: https://nvidia.github.io/libnvidia-container/stable/centos8/$basearch
+    enabled: true
+    gpgcheck: false
+    repo_gpgcheck: true
+    gpgkey: https://nvidia.github.io/libnvidia-container/gpgkey

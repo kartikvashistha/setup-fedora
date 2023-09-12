@@ -1,3 +1,4 @@
+---
 - name: Install nvidia drivers
   ansible.builtin.dnf:
     name: akmod-nvidia
@@ -5,7 +6,7 @@
 
 - name: Install the optional 64 bit & 32 bit CUDA and NVENC packages
   ansible.builtin.dnf:
-    name: xorg-x11-drv-nvidia-cuda, xorg-x11-drv-nvidia-cuda-libs, xorg-x11-drv-nvidia-libs.i686
+    name: "{{ nvidia_optional_packages }}"
     state: present
 
 - name: Install Vulkan
