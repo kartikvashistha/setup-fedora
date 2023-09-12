@@ -10,7 +10,7 @@
   ansible.builtin.dnf:
     name: "{{ rpmfusion_free }}, {{ rpmfusion_non_free }}"
     state: present
-    disable_gpg_check: yes
+    disable_gpg_check: true
 
 - name: Add third party repos
   ansible.builtin.yum_repository:
