@@ -35,7 +35,7 @@ third_party_repos:
     gpgcheck: true
     repo_gpgcheck: false
     gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-  
+
   - name: docker-ce.repo
     description: Docker CE Stable - $basearch
     baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable

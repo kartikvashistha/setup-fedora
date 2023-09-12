@@ -1,3 +1,4 @@
+---
 # Create our many config files
 
 - name: Create omzrc config from template

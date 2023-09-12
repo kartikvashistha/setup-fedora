@@ -1,5 +1,6 @@
+---
 galaxy_info:
-  author: kartikvashistha
+  author: Kartik Vashistha
   description: Ansible role to configure a fresh Fedora install with my desired repos & software.
   license: MIT
   min_ansible_version: "2.1"

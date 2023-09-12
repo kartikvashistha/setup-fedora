@@ -51,7 +51,7 @@
     state: present
   with_items: "{{ flatpak }}"
 
-- name: Checkout passion theme # noqa: latest
+- name: Checkout passion theme  # noqa: latest
   ansible.builtin.git:
     repo: 'https://github.com/ChesterYue/ohmyzsh-theme-passion.git'
     dest: "{{ home_user_path }}/code/ohmyzsh-theme-passion"
@@ -67,7 +67,7 @@
   when: omz
 
 - name: Install AstroNvim
-  ansible.builtin.git: # noqa: latest
+  ansible.builtin.git:  # noqa: latest
     repo: https://github.com/AstroNvim/AstroNvim
     dest: "{{ home_user_path }}/.config/nvim"
     depth: 1
@@ -82,7 +82,7 @@
   become_user: "{{ home_username }}"
 
 - name: Clone Nerd Fonts repo
-  ansible.builtin.git: # noqa: latest 
+  ansible.builtin.git:  # noqa: latest
     repo: https://github.com/ryanoasis/nerd-fonts.git
     dest: "{{ home_user_path }}/code/nerd-fonts"
     depth: 1
