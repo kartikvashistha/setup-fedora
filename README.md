@@ -1,7 +1,7 @@
 Setup-Fedora
 =========
 
-This is a simple ansible role to configure a new Fedora setup with my desired repositories and  software packages.
+This is a simple ansible role to configure a new Fedora setup with my desired repositories and software packages.
 
 How to run the role
 -------------------
