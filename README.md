@@ -58,29 +58,9 @@ The playbook can be run like so:
 Enter your [sudo] password to proceed.
 
 
-Development & testing
----------------------
-
-Install the pip requirements in your python virtualenv by running the following:
-```
-pip install -r requirements.txt
-```
-
-Issues
-------
-
-The issues listed below are concerns only during the role's development & testing process, and **does not** affect the functionality of the role when run on a host machine. 
-
-* Currently, `molecule idempotence` fails due to a bug in `flatpak_remote` module. An open issue for this can be found here: https://github.com/ansible-collections/community.general/issues/4730
-
-* There is another ansible-compat bug that is affecting molecule test: https://github.com/ansible/ansible-compat/issues/78
-
-* A cleanup of the tests need to be done as they currently have the variables of the roles explicity defined instead of reading them from the respective var files.
-
-* In the `molecule/default/converge.yml` file, the default flatpak vars are overriden as the Spotify flatpak fails to install in a docker container. 
 
 License
 -------
 
-BSD
+MIT
 
