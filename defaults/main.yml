@@ -39,6 +39,7 @@ packages:
   - gcc
   - gcc-c++
   - make
+  - kubectl
 
 nvidia_optional_packages:
   - xorg-x11-drv-nvidia-cuda
