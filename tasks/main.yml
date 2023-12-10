@@ -76,7 +76,7 @@
 
 - name: Install my AstroNvim user config
   ansible.builtin.git:  # noqa: latest
-    repo: git@github.com:kartikvashistha/astronvim_config.git
+    repo: "git@github.com:kartikvashistha/astronvim_config.git"
     dest: "{{ home_user_path }}/.config/nvim/lua/user"
   become: true
   become_user: "{{ home_username }}"

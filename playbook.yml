@@ -7,7 +7,7 @@
   roles:
     - role: ../setup-fedora
       vars:
-        nvidia: true
+        nvidia: false
         omz: true
         docker: true
         version: 38
