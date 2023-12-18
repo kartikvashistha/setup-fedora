@@ -93,7 +93,3 @@
 - name: Docker install and configuration
   ansible.builtin.include_tasks: docker.yml
   when: docker
-
-# Install our config files
-- name: Create & install config files
-  ansible.builtin.include_tasks: config.yml
