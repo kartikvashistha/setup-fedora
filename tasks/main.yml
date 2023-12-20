@@ -75,6 +75,7 @@
     depth: 1
   become: true
   become_user: "{{ home_username }}"
+  when: clone_nerdfonts
 
 # Install & configure Docker
 - name: Docker install and configuration

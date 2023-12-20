@@ -6,6 +6,8 @@ docker: true
 
 enable_flatpak: false
 
+clone_nerdfonts: false
+
 home_username: "{{ ansible_facts['env']['SUDO_USER'] }}"
 home_user_path: "/home/{{ home_username }}"
 
