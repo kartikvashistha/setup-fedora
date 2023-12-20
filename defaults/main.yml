@@ -4,6 +4,8 @@ nvidia: false
 omz: false
 docker: true
 
+enable_flatpak: false
+
 home_username: "{{ ansible_facts['env']['SUDO_USER'] }}"
 home_user_path: "/home/{{ home_username }}"
 

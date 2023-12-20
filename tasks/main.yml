@@ -43,6 +43,7 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: system
+  when: enable_flatpak
 
 - name: Install flatpak applications
   community.general.flatpak:
@@ -50,6 +51,7 @@
     remote: flathub
     state: present
   with_items: "{{ flatpak }}"
+  when: enable_flatpak
 
 - name: Checkout passion theme  # noqa: latest
   ansible.builtin.git:
