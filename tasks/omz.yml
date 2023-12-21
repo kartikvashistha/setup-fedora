@@ -3,21 +3,13 @@
   ansible.builtin.git:
     repo: 'https://github.com/ohmyzsh/ohmyzsh.git'
     dest: "{{ home_user_path }}/.oh-my-zsh}"
-  when: omz
   become: true
   become_user: "{{ home_username }}"
 
-- name: Clone passion theme  # noqa: latest
+- name: Clone passion theme under ohmyzsh themes folder  # noqa: latest
   ansible.builtin.git:
     repo: 'https://github.com/ChesterYue/ohmyzsh-theme-passion.git'
-    dest: "{{ home_user_path }}/code/ohmyzsh-theme-passion"
-  when: omz
+    dest: "{{ home_user_path }}/.oh-my-zsh/themes/passion.zsh-theme"
   become: true
   become_user: "{{ home_username }}"
 
-- name: Copy passion theme to Oh my Zsh themes folder
-  ansible.builtin.copy:
-    src: "{{ home_user_path }}/code/ohmyzsh-theme-passion/passion.zsh-theme"
-    dest: "{{ home_user_path }}/.oh-my-zsh/themes/passion.zsh-theme"
-    remote_src: true
-  when: omz
