@@ -2,7 +2,7 @@
 - name: Clone oh-my-zsh repo  # noqa: latest
   ansible.builtin.git:
     repo: 'https://github.com/ohmyzsh/ohmyzsh.git'
-    dest: "{{ home_user_path }}/.oh-my-zsh}"
+    dest: "{{ home_user_path }}/.oh-my-zsh"
   become: true
   become_user: "{{ home_username }}"
 
