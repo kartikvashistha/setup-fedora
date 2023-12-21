@@ -81,3 +81,11 @@
 - name: Docker install and configuration
   ansible.builtin.include_tasks: docker.yml
   when: docker
+
+- name: Clone & install asdf
+  ansible.builtin.git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ home_user_path }}/.asdf"
+    version: v0.13.1
+  become: true
+  become_user: "{{ home_username }}"
