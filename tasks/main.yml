@@ -1,5 +1,15 @@
 ---
 # Tasks file for setup-fedora
+- name: Install zsh
+  ansible.builtin.dnf:
+    name: zsh
+    state: present
+
+- name: Change shell to zsh
+  ansible.builtin.user:
+    name: "{{ ansible_facts['env']['SUDO_USER'] }}"
+    shell: /bin/zsh
+  become: true
 
 - name: Upgrade system packages
   ansible.builtin.dnf:
